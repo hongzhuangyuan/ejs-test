@@ -10,4 +10,10 @@ describe("ejs", ()=>{
     expect(ejs.render("<%= foo %>", {foo:"bar"})).toBe("bar")
   })
 
+  test("array", ()=>{
+    var data = {items: [1, 2, 3]}
+
+    expect(ejs.render("<%= items.join(', ') %>", data)).toBe("1, 2, 3")
+  })
+
 })
