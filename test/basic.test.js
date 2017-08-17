@@ -24,7 +24,7 @@ describe("ejs", ()=>{
 
   describe("flow control", ()=>{
     
-    describe("if statement",()=>{
+    describe("if statement", ()=>{
       var tmpl = "<% if(typeof foo!=='undefined'){'bar'} %>"
 
       it("absent", ()=>{
@@ -35,6 +35,15 @@ describe("ejs", ()=>{
         expect(ejs.render(tmpl, {foo: true})).toBe("")
       })
 
+    })
+
+
+    it("for loop", ()=>{
+      var tmpl = "<%for(var i = 0; i < 3; i++){%>"+
+                    "<%=i%>"+
+                 "<%}%>"  
+
+      expect(ejs.render(tmpl)).toBe("012")
     })
 
   })
